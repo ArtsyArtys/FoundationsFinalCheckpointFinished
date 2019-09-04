@@ -1,16 +1,12 @@
-/* eslint-disable no-unused-vars */
+function complement(func)
+{
+  return (a) => !func(a);
+}
 
-/*
-
-  NOTE:
-
-  the complement function needs to be defined with a function declaration to pass the test specs
-  do not refactor the function declearation.
-  
-  The complement function may need parameters in its definition.... read the test specs! :)
-
-*/
-
-function complement() {
-  
+function remove(arr, func)
+{
+  let newArr = [];
+  func = complement(func);
+  arr.forEach(item => { if (func(item)) { newArr.push(item); } });
+  return newArr;
 }
